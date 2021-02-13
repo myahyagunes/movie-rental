@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import { getByTitle } from "@testing-library/react";
+import { Link } from "react-router-dom";
 
 class TableBody extends Component {
   renderCell = (item, column) => {

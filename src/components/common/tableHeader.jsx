@@ -18,11 +18,11 @@ class TableHeader extends Component {
 
     if (column.path !== sortColumn.path) return null;
     if (sortColumn.order === "asc")
-      return <i class="fas fa-sort-amount-down-alt"></i>;
+      return <i className="fas fa-sort-amount-down-alt"></i>;
     if (sortColumn.order === "desc")
-      return <i class="fas fa-sort-amount-up"></i>;
+      return <i className="fas fa-sort-amount-up"></i>;
 
-    return <i class="fas fa-sort-amount-up"></i>;
+    return <i className="fas fa-sort-amount-up"></i>;
   };
 
   render() {
