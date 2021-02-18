@@ -1,56 +1,87 @@
+import Joi from "joi";
 import React, { Component } from "react";
+import Input from "./common/input";
 
 class LoginForm extends Component {
   state = {
     account: { username: "", password: "" },
+    errors: {},
   };
+
+  schema = {
+    username: Joi.string().required().label("Username is required."),
+    password: Joi.string().required().label("Password is requored."),
+  };
+
+  validate = () => {
+    const result = Joi.object(this.schema).validate(this.state.account, {
+      abortEarly: false,
+    });
+
+    if (!result.error) return null;
+
+    const errors = {};
+    for (let item of result.error.details) errors[item.path[0]] = item.message;
+
+    return errors;
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
+    const errors = this.validate();
+    console.log(errors);
+    this.setState({ errors: errors || {} });
+    if (errors) return;
+  };
+
+  validateProperty = ({ name, value }) => {
+    const obj = { [name]: value };
+    const schema = {
+      [name]: this.schema[name],
+    };
+    const { error } = Joi.object(schema).validate(obj);
+    return error ? error.details[0].message : null;
   };
 
   handleChange = ({ currentTarget: input }) => {
+    const errors = { ...this.state.errors };
+    const errorMessage = this.validateProperty(input);
+    if (errorMessage) errors[input.name] = errorMessage;
+    else delete errors[input.name];
+
     const account = { ...this.state.account };
     account[input.name] = input.value;
-    this.setState({ account });
+    this.setState({ account, errors });
   };
 
   render() {
-    const { account } = this.state;
+    const { account, errors } = this.state;
     return (
       <div>
         <h4>Login</h4>
 
         <form onSubmit={this.handleSubmit}>
           <div className="col-6">
-            <div className=" mb-3">
-              <label htmlFor="username" className="form-label">
-                UserName
-              </label>
-              <input
-                onChange={this.handleChange}
-                value={account.username}
-                name="username"
-                type="text"
-                className="form-control"
-                id="username"
-                placeholder="name@example.com"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                onChange={this.handleChange}
-                value={account.password}
-                name="password"
-                type="text"
-                className="form-control"
-                id="password"
-                placeholder="name@example.com"
-              />
-            </div>
-            <button className="btn btn-primary btn-sm">Login</button>
+            <Input
+              name="username"
+              value={account.username}
+              label="Username"
+              onChange={this.handleChange}
+              error={errors.username}
+            />
+            <Input
+              name="password"
+              value={account.password}
+              label="Password"
+              onChange={this.handleChange}
+              error={errors.password}
+            />
+            <button
+              disabled={this.validate()}
+              className="btn btn-primary btn-sm"
+            >
+              Login
+            </button>
           </div>
         </form>
       </div>
