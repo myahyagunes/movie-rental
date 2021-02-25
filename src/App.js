@@ -7,13 +7,16 @@ import Movies from "./components/movies";
 import NavBar from "./components/navbar";
 import NotFound from "./components/notFound";
 import Rentals from "./components/rentals";
-import "./App.css";
 import RegisterForm from "./components/registerForm";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <ToastContainer />
         <NavBar />
         <main className="container">
           <Switch>
