@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link, NavLink, Route } from "react-router-dom";
 import Movies from "./movies";
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   return (
     <nav
       className="navbar navbar-expand navbar-dark bg-dark mb-3"
@@ -41,16 +41,46 @@ const NavBar = () => {
                 Rentals
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/login">
-                Login
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/register">
-                Register
-              </NavLink>
-            </li>
+            {!user && (
+              <React.Fragment>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="/login">
+                    Login
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to="/register"
+                  >
+                    Register
+                  </NavLink>
+                </li>
+              </React.Fragment>
+            )}
+            {user && (
+              <React.Fragment>
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to="/Profile"
+                  >
+                    {user.name}
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to="/logout"
+                  >
+                    Logout
+                  </NavLink>
+                </li>
+              </React.Fragment>
+            )}
           </ul>
         </div>
       </div>
