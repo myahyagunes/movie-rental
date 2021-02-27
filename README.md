@@ -1,3 +1,29 @@
+# Purpose
+
+I have created and developed this very simple project for purpose of learning ReactJs.
+
+For overview you can go: https://movie-rental-ui-myg.herokuapp.com/
+
+**Note:** The sample website may open slowly due to deployed on free tier option of Heroku and MongoDb. It takes approximately 15 seconds to see the datas.
+
+Demo credential
+
+> username: demo@demo.com password: demodemo
+
+Admin credential
+
+> username: admin@admin.com password: admin
+
+# Used Technologies and Environments
+
+- **Frontend** : ReactJs v17
+- **Backend** : NodeJs, ExpressJs v4
+- **Database** : MongoDb
+- **Additional libraries** : lodash v4, jsonwebtoken v8, react-toastify v7, query-string v6, jwt-decode v3, joi v17, bootstrap v5, axios v0.21
+- **Frontend Deployment Environment** : https://www.heroku.com/
+- **Backend Deployment Environment** : https://www.heroku.com/
+- **Database Deployment Environment** : https://cloud.mongodb.com/v2
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -6,7 +32,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +40,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +55,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `npm eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
@@ -65,6 +91,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `yarn build` fails to minify
+### `npm build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
