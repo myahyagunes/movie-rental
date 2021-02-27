@@ -2,7 +2,7 @@ import jwt_decode from "jwt-decode";
 import http from "./httpService";
 import { movieRentalEndpoint } from "../config.json";
 
-const apiEndpoint = movieRentalEndpoint + "/auth";
+const apiEndpoint = "/auth";
 export const tokenKey = "token";
 
 http.setJwt(getJwt());

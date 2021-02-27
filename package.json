@@ -22,9 +22,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-scripts start --env=development",
+    "build": "react-scripts build --env=production",
+    "test": "react-scripts test --env=test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
