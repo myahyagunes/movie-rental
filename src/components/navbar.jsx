@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Link, NavLink, Route } from "react-router-dom";
-import Movies from "./movies";
 
 const NavBar = ({ user }) => {
   return (
